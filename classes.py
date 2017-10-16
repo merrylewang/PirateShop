@@ -50,21 +50,30 @@ class Shop:
 
     # applies discounts when cart includes all three DVDs or all three Blu-Rays
     def discounts(self):
+        savings = 0
         if len(self.dvdset) == 3:
             dis = self.dvdcount * 0.1 * 20
             self.cost -= dis
             self.cost = round(self.cost,2)
+            savings += dis
 
         if len(self.blurayset) == 3:
             dis = self.bluraycount * 0.15 * 25
             self.cost -= dis
             self.cost = round(self.cost, 2)
+            savings += dis
+
+        return savings
+
 
     # discount when you buy 100 or more items
     def bulkdiscount(self):
+        savings = 0
         if self.numberInCart >= 100:
-            self.cost = self.cost * 0.95
-            self.cost = round(self.cost, 2)
+            dis = round(self.cost * 0.05,2)
+            self.cost -= dis
+            savings = dis
+        return savings
 
 
 

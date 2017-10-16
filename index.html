@@ -19,23 +19,26 @@
         <input type="number" name = "EpisodeVBlu" min="0"><br><br>
         Star Wars Episode VI Blu-Ray ($25)
         <input type="number" name = "EpisodeVIBlu" min="0"><br><br>
-        <input type="submit" value="Submit">
+        <input type="submit" name = "Submit" value= "Submit">
+        <input type="submit" name = "Submit" value = "Checkout">
+        <input type="submit" name = "Submit" value = "Empty Cart">
     </form>
 
 <br><br>
 
-    <form action = "." method = "GET">
-        <input type = "submit" name = "submit" value = "Checkout">
-    </form>
+{% if not checkout %}
+    You will fork up ${{cost}} for your {{itemsInCart}} movies if you continue.
+{% endif %}
 
-<br><br>
+<br><br><br><br><br><br>
 
-Fork up ${{cost}} for your {{itemsInCart}} movies
+{% if checkout %}
 
-<br><br>
+    Pay ${{cost}} <br><br>
+    You saved ${{regSavings}}. <br><br>
+    And then you saved ${{bulkSavings}} for buying in bulk.
 
-<button>Checkout</button>
-
+{% endif %}
 
 </body>
 </html>
