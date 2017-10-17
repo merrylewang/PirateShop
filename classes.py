@@ -25,6 +25,8 @@ class Shop:
         self.blurayset = set()
         self.bluraycount = 0
 
+        # TODO can implement how much of each item the shop has left, currently has infinite stock of each item
+
     # adds one item into cart
     def add(self,product):
         self.cost += product.price
@@ -49,6 +51,7 @@ class Shop:
         self.blurayset.clear()
 
     # applies discounts when cart includes all three DVDs or all three Blu-Rays
+    # dvdset and blurayset check for this
     def discounts(self):
         savings = 0
         if len(self.dvdset) == 3:
@@ -74,11 +77,3 @@ class Shop:
             self.cost -= dis
             savings = dis
         return savings
-
-
-
-
-
-
-
-
